@@ -29,6 +29,7 @@
 .post__verified{
     color: var(--twitter-color);
     font-size: 14px !important;
+    
 }
 
 .post__headerSpecial{
@@ -45,3 +46,10 @@
 .post__avatar{
     padding: 20px;
 }
+
+.MuiSvgIcon-fontSizeSmall:hover {
+    transition: color 100ms ease-out;
+    font-size: 22px;
+
+}
+

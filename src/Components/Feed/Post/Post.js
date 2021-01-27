@@ -1,5 +1,5 @@
 import { Avatar } from '@material-ui/core';
-import React from 'react';
+import React,{ forwardRef } from 'react';
 import './Post.css';
 import VerifiedUserIcon from '@material-ui/icons/VerifiedUser';
 import ChatBubbleOutlineRoundedIcon from '@material-ui/icons/ChatBubbleOutlineRounded';
@@ -7,34 +7,34 @@ import RepeatIcon from '@material-ui/icons/Repeat';
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 import PublishIcon from '@material-ui/icons/Publish';
 
-function Post({
+const Post = forwardRef(({
     displayName,
     username,
     verified,
     text,
     image,
     avatar,
-}) {
+}, ref) =>{
     return (
-        <div className="post">
+        <div className="post" ref={ref}>
             <div className="post__avatar">
-                <Avatar />
+                <Avatar src={avatar}/>
             </div>
             <div className="post__body">
                 <div className="post__header">
                     <div className="post__headerText">
                         <h3>
-                            dinesh{" "}
+                            {displayName}{" "}
                                 <span className="post__headerSpecial">
-                                    <VerifiedUserIcon className="post__verified"/> @dinesh
+                                {verified && <VerifiedUserIcon className="post__verified"/>} @{username}
                                 </span>
                         </h3>
                     </div>
                     <div className="post__headerDescription">
-                        <p>Damu BSDK</p>
+                        <p>{text}</p>
                     </div>
                 </div>
-                <img src="https://media.giphy.com/media/kLXJDTt370giGPYF17/giphy.gif" alt="gif" />
+                <img src={image} alt="" />
                 <div className="post__footer">
                 <ChatBubbleOutlineRoundedIcon fontSize="small" />
                 <RepeatIcon fontSize="small"/>
@@ -45,6 +45,6 @@ function Post({
             </div>
         </div>
     )
-}
+})
 
 export default Post

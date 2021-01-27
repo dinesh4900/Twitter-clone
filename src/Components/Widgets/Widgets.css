@@ -6,7 +6,7 @@
 .widgets__input{
     display: flex;
     align-items: center;
-    background-color: var(--twitter-background);
+    background-color: #dfe6e9;
     padding: 10px;
     border-radius: 10px;
     margin-top: 10px;
